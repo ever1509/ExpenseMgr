@@ -14,10 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Categories\Commands\" />
-    <Folder Include="Categories\Queries\" />
-    <Folder Include="Transactions\Commands\" />
-    <Folder Include="Transactions\Queries\" />
+    <Folder Include="Transactions\Queries\ShowBalanceDetail\" />
+    <Folder Include="Transactions\Queries\ShowTotalBalance\" />
   </ItemGroup>
 
   <ItemGroup>
