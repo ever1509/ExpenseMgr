@@ -10,10 +10,11 @@ namespace Infrastructure.Persistance.Configurations
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
             builder.HasKey(e => e.TransactionId);
+            builder.Property(e => e.TransactionId).ValueGeneratedOnAdd();
             builder.Property(e => e.Value).IsRequired().HasColumnType("decimal(10,2)");
             builder.Property(e => e.Name).IsRequired().HasColumnType("varchar(50)");
             builder.Property(e => e.Description).IsRequired(false);
-            builder.Property(e => e.TransactionDate).IsRequired().HasColumnType("datetime");
+            builder.Property(e => e.TransactionDate).IsRequired().HasColumnType("date");
             builder.Property(e => e.TypeTransaction).IsRequired().HasColumnType("int");
 
 

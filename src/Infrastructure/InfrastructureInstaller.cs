@@ -19,9 +19,9 @@ namespace Infrastructure
 
             services.AddScoped<IExpenseContext>(provider => provider.GetService<ExpenseContext>());
 
-            //services.AddDefaultIdentity<ApplicationUser>()
-            //    .AddRoles<IdentityRole>()
-            //    .AddEntityFrameworkStores<ExpenseContext>();
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ExpenseContext>();
 
 
 

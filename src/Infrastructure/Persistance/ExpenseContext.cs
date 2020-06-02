@@ -21,6 +21,8 @@ namespace Infrastructure.Persistance
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ForNpgsqlUseIdentityColumns();
+
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(builder);

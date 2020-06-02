@@ -12,6 +12,7 @@ namespace Infrastructure.Persistance.Configurations
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(e => e.CategoryId);
+            builder.Property(e => e.CategoryId).ValueGeneratedOnAdd();
             builder.Property(e => e.Description).IsRequired().HasColumnType("varchar(20)");
         }
     }

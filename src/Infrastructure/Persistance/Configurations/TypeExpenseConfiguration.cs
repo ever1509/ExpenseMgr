@@ -9,6 +9,7 @@ namespace Infrastructure.Persistance.Configurations
         public void Configure(EntityTypeBuilder<TypeExpense> builder)
         {
             builder.HasKey(e => e.TypeExpenseId);
+            builder.Property(e => e.TypeExpenseId).ValueGeneratedOnAdd();
             builder.Property(e => e.Description).IsRequired().HasColumnType("varchar(20)");
         }
     }
