@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Application.Categories.Commands.AddCategoryCommand;
 using Application.Categories.Queries.GetCategoriesQuery;
 using Application.Transactions.Commands.AddTransactionCommand;
@@ -9,7 +6,6 @@ using Application.Transactions.Queries.GetExpensesByCategory;
 using Application.Transactions.Queries.GetTotalExpenses;
 using Application.Transactions.Queries.GetTotalIncomes;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
