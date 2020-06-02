@@ -45,9 +45,9 @@ namespace API.Controllers
         }
 
         [HttpGet("expensesbycategory")]
-        public async Task<IActionResult> GetExpenses(int id)
+        public async Task<IActionResult> GetExpenses()
         {
-            var result = await _mediator.Send(new GetExpensesByCategoryQuery() {Id = id});
+            var result = await _mediator.Send(new GetExpensesByCategoryQuery());
 
             return Ok(result);
         }
