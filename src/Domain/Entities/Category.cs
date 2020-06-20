@@ -11,6 +11,7 @@ namespace Domain.Entities
 
         public int CategoryId { get; set; }
         public string Description { get; set; }
+        public byte[] Image { get; set; }
 
         public ICollection<Transaction> Transactions { get;}
     }
