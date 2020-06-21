@@ -25,6 +25,7 @@ namespace Application.Categories.Commands.AddCategoryCommand
             var entity = new Category()
             {
                 Description = request.Description,
+                ImageName = request.ImageFile.FileName,
                 Image = getBytesFromImage(request.ImageFile)
             };
 
@@ -40,10 +41,10 @@ namespace Application.Categories.Commands.AddCategoryCommand
         private byte[] getBytesFromImage(IFormFile imgFile)
         {
             byte[] imgBytes;
-            using (var mStream = new MemoryStream())
+            using (var ms = new MemoryStream())
             {
-                mStream.CopyTo(imgFile.OpenReadStream());
-                imgBytes = mStream.ToArray();
+                imgFile.CopyTo(ms);
+                imgBytes = ms.ToArray();
             }
 
             return imgBytes;
@@ -64,14 +65,9 @@ namespace Application.Categories.Commands.AddCategoryCommand
                         if(!result)
                             throw new Exception("Could not upload the image to file repository. Please see the logs for details.");
                     }
-
-                    using (var ms = new MemoryStream())
-                    {
-                        file.CopyTo(ms);
-                        var bytes = ms.ToArray();
-                    }
                 }
                 catch (Exception e)
+                
                 {
                     Console.WriteLine(e);
                     throw;

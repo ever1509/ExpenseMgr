@@ -14,6 +14,8 @@ namespace Infrastructure.Persistance.Configurations
             builder.HasKey(e => e.CategoryId);
             builder.Property(e => e.CategoryId).ValueGeneratedOnAdd();
             builder.Property(e => e.Description).IsRequired().HasColumnType("varchar(20)");
+            builder.Property(e => e.ImageName).IsRequired().HasColumnType("varchar(200)");
+            builder.Property(e => e.Image).IsRequired(false);
         }
     }
 }

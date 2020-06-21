@@ -8,6 +8,7 @@ namespace Application.Categories.Commands.AddCategoryCommand
         {
             RuleFor(e => e.Description).NotEmpty().WithMessage("Its necessary a description for cateogory");
             RuleFor(e => e.Description).MaximumLength(20).WithMessage("Description needs to be short");
+            RuleFor(e => e.ImageFile).NotEmpty().WithMessage("You need to upload an image");
         }
     }
 }

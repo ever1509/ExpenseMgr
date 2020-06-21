@@ -6,6 +6,7 @@ using Application.Transactions.Queries.GetExpensesByCategory;
 using Application.Transactions.Queries.GetTotalExpenses;
 using Application.Transactions.Queries.GetTotalIncomes;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -37,7 +38,7 @@ namespace API.Controllers
         }
 
         [HttpPost("addcategory")]
-        public async Task<IActionResult> AddCategory([FromBody] AddCategoryCommand command)
+        public async Task<IActionResult> AddCategory([FromForm] AddCategoryCommand command)
         {
             var result = await _mediator.Send(command);
 

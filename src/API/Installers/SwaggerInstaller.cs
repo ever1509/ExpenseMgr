@@ -65,6 +65,7 @@ namespace API.Installers
                     }
                 });
                 //----------------------------------------
+
             });
 
             return services;
