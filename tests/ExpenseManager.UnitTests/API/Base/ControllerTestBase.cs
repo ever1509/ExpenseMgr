@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Application.Categories.Commands.AddCategoryCommand;
 using Application.Categories.Queries.GetCategoriesQuery;
+using Application.Common.Models;
 using Application.Transactions.Commands.AddTransactionCommand;
 using Application.Transactions.Queries.GetExpensesByCategory;
 using Application.Transactions.Queries.GetTotalExpenses;
@@ -19,11 +20,17 @@ namespace ExpenseManager.UnitTests.API.Base
     {
         public readonly IMediator _mediatorFake;
         public readonly ILogger<T> _loggerFake;
+        public readonly S3Settings _S3Settings;
         public const decimal TOTAL_EXPENSES_FAKE=300;
         
         public const decimal TOTAL_INCOMES_FAKE=200;
         public ControllerTestBase()
         {
+            _S3Settings = new S3Settings()
+            {
+                ImgBaseUrl = "http://baseImageurl.com/",
+                ImageBucket = "ExpensesTestBucket"
+            };
             _mediatorFake = A.Fake<IMediator>();
             _loggerFake = A.Fake<ILogger<T>>();
 

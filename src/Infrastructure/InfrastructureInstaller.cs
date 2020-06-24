@@ -1,4 +1,7 @@
 ﻿using Application.Common.Interfaces;
+using Application.Common.Mappings;
+using Application.Common.Models;
+using AutoMapper;
 using Infrastructure.Identity;
 using Infrastructure.Persistance;
 using Infrastructure.Services;
@@ -24,8 +27,20 @@ namespace Infrastructure
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ExpenseContext>();
 
-            services.AddTransient<IFileUploader, S3FileUploader>();
+            var s3Settings = new S3Settings();
+            configuration.Bind(nameof(s3Settings), s3Settings);
+            services.AddSingleton(s3Settings);
 
+            var mapperCfg = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new CustomProfile(s3Settings));
+            });
+
+            var mapperCustomProfile = mapperCfg.CreateMapper();
+
+            services.AddSingleton(mapperCustomProfile);
+    
+            services.AddTransient<IFileUploader, S3FileUploader>();
 
             return services;
         }

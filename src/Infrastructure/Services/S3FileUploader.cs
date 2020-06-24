@@ -5,23 +5,23 @@ using System.Threading.Tasks;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Application.Common.Interfaces;
+using Application.Common.Models;
 using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Services
 {
     public class S3FileUploader:IFileUploader
     {
-        private readonly IConfiguration _configuration;
-
-        public S3FileUploader(IConfiguration configuration)
+        private readonly S3Settings _s3Settings;
+        public S3FileUploader(S3Settings s3Settings)
         {
-            _configuration = configuration;
+            _s3Settings = s3Settings;
         }
         public async Task<bool> UploadFileAsync(string fileName, Stream storageStream)
         {
             if(string.IsNullOrEmpty(fileName)) throw new ArgumentException("Filename must be especified");
 
-            var bucketName = _configuration.GetValue<string>("ImageBucket");
+            var bucketName = _s3Settings.ImageBucket;
 
             using (var client = new AmazonS3Client())
             {
