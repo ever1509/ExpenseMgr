@@ -44,6 +44,7 @@ namespace API
                 s.AssembliesAndExecutablesFromApplicationBaseDirectory(a=>a.FullName.Contains("Infrastructure"));
                 s.TheCallingAssembly();
                 s.WithDefaultConventions();
+                s.SingleImplementationsOfInterface();
             });
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
