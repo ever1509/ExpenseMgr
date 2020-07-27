@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Services
 {
-    public class S3FileUploader:IFileUploader
+    public class S3FileUploader:IS3FileUploader
     {
         private readonly S3Settings _s3Settings;
         public S3FileUploader(S3Settings s3Settings)

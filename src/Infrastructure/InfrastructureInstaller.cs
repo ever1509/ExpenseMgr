@@ -39,8 +39,6 @@ namespace Infrastructure
             var mapperCustomProfile = mapperCfg.CreateMapper();
 
             services.AddSingleton(mapperCustomProfile);
-    
-            services.AddTransient<IFileUploader, S3FileUploader>();
 
             return services;
         }

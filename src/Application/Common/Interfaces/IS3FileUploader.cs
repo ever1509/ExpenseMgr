@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces
 {
-    public interface IFileUploader
+    public interface IS3FileUploader
     {
         Task<bool> UploadFileAsync(string fileName, Stream storageStream);
     }

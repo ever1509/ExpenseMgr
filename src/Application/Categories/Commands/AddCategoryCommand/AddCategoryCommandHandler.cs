@@ -12,9 +12,9 @@ namespace Application.Categories.Commands.AddCategoryCommand
     public class AddCategoryCommandHandler:IRequestHandler<AddCategoryCommand,bool>
     {
         private readonly IExpenseContext _context;
-        private readonly IFileUploader _fileUploader;
+        private readonly IS3FileUploader _fileUploader;
 
-        public AddCategoryCommandHandler(IExpenseContext context, IFileUploader fileUploader)
+        public AddCategoryCommandHandler(IExpenseContext context, IS3FileUploader fileUploader)
         {
             _context = context;
             _fileUploader = fileUploader;
