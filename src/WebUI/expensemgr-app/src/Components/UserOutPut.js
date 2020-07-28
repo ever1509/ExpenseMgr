@@ -1,11 +1,10 @@
 import React from 'react';
 
-const userOutPut = (props)=>{
+const userOutPut = ( props )=>{
     return(
-        <div>
-            <h1>Expense Manager App</h1>
-            <p>Username : {props.username}</p>
-            <p>App tha show every expense you do...</p>
+        <div className="UserOutPut">           
+            <p onChange={props.changed}>Username : {props.users[0].username}</p> 
+            <p>Username : {props.users[1].username}</p>            
         </div>
     )
 }

@@ -5,28 +5,31 @@ import UserOutPut from './Components/UserOutPut';
 
 class App extends Component {
   state ={
-    user:[
-      {username:'ever1509'}     
-    ]
+    users:[
+      {username:'ever1509'},
+      {username:'orelle01'}    
+    ]  
   } 
   
-  updateUserNameHandler =(newUserName)=>{
+  usernameChangedHandler =(event)=>{
     this.setState(
       {
-        user:[
-          {username:newUserName}
+        users: [
+          {username:'ever1509'},
+          {username:event.target.value}          
         ]
-      }
-    )
+       
+      })
   }
   
   render() {
+
+
     return (
-      <div>
-       <UserOutPut 
-       username={this.state.user.username} 
-      //  changed={this.updateUserNameHandler('orelle01')}
-       />       
+      <div className="App">   
+            <h1>Expense Manager App</h1>        
+       <UserInput  changed={this.usernameChangedHandler} />
+         <UserOutPut users={this.state.users}/>            
       </div>
     );
   }
